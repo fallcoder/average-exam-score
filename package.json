@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "\"application pour calculer la moyenne des notes\"",
   "main": "main.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
