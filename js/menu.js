@@ -8,7 +8,7 @@ export function mainMenu(r1) {
     console.log("3. Quittez");
 
     r1.question("Faites votre choix : ", (option) => {
-        switch(option) {
+        switch(option.trim()) {
             case '1':
                 enterNotes(r1);
                 break;
