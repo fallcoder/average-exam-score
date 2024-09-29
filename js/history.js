@@ -1,11 +1,10 @@
 import { mainMenu } from "./menu.js";
 
-mainMenu
-
 let history = [];
 
 export function saveToHistory(result) {
     history.push(result);
+    console.log("Moyenne sauvegardée dans l'historique")
 }
 
  export function showHistory(r1) {
