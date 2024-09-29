@@ -1,6 +1,6 @@
 // importation du module readline pour lire les entrées utilisateur dans la console
 import { createInterface } from 'readline';
-import { mainMenu } from './js/menu.js';
+import { mainMenu } from './menu.js';
 
 // création de l'interface readline
 const r1 = createInterface({
