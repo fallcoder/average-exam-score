@@ -2,7 +2,7 @@
 class Exams {
   static average(notes) {
     const sum = notes.reduce((acc, note) => acc + note, 0);
-    const avg = sum / notes.lenght;
+    const avg = sum / notes.length;
     return avg.toFixed(2); // renvoie la moyenne avec 2 décimales
   }
 }
