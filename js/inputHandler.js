@@ -1,13 +1,14 @@
 import { average } from "./Exams.js"
 import { saveToHistory } from "./history.js"
 import { mainMenu } from "./menu.js"
+import { handleInputError, handleCountError } from "./errorHandler.js"
 
 export function enterNotes(r1) {
     r1.question("Combien de notes souhaitez-vous entrer ? ", (count) => {
-        count = parseInt(count, 10)
+        const countError = handleCountError(count);
 
-        if(isNaN(count) || count <= 0) {
-            console.log("veuillez entrer un nombre valide supérieur à 0")
+        if(countError) {
+            console.log(countError)
             return mainMenu(r1)
         }
 
@@ -15,15 +16,15 @@ export function enterNotes(r1) {
 
         function askForNote(i) {
             if(i < count) {
-                r1.question(`entrez la note de ${i+1} (entre 0 et 20) : `, (input) => {
-                    const note = parseInt(input, 10);
+                r1.question(`entrez la note de ${i + 1} (entre 0 et 20) : `, (input) => {
+                    const inputError = handleInputError(input);
 
-                    if(isNaN(note) || note < 0 || note > 20) {
-                        console.log("Erreur: veuillez entrer une note valide entre 0 et 20");
-                        return askForNote(r1)
+                    if(inputError) {
+                        console.log(inputError);
+                        return askForNote(i)
                     }
 
-                    notes.push(note);
+                    notes.push(parseInt(input, 10));
                     askForNote(i + 1);
                 });
             }
